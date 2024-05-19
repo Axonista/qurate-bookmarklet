@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QVC Plus Bookmarklet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .bookmarklet {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>QVC Plus Bookmarklet</h1>
+    <p>Drag the link or button to your bookmarks bar:</p>
+    <a href="javascript:(function(){const domain=window.location.hostname;if(domain!=='plus.qvc.com'){alert('works only on QVC Plus');return;}const path=window.location.pathname;const base64Decode=(str)=>{try{return atob(str);}catch(e){return'';}};const openNewTab=(url)=>{window.open(url,'_blank');};const baseUrl='https://cms.pi07.ediflo.tv/@qvc-us';if(path==='/'){openNewTab(`${baseUrl}/collections/homepage-web`);}else if(path.startsWith('/series/')){const parts=path.split('/');if(parts.length===4){let id=base64Decode(parts[3]).replace(/\n/g,'').replace(/^Video_VideoSeriesd/,'');openNewTab(`${baseUrl}/series/${id}`);}}else if(path.startsWith('/portals/')&&path.includes('/streams/')){const parts=path.split('/');if(parts.length===6){let id=base64Decode(parts[5]).replace(/\n/g,'').replace(/^Video_VideoStreamd/,'');openNewTab(`${baseUrl}/assets/${id}`);}}else if(path.startsWith('/streams/')){const parts=path.split('/');if(parts.length===4){let id=base64Decode(parts[3]).replace(/\n/g,'').replace(/^Video_VideoStreamd/,'');openNewTab(`${baseUrl}/assets/${id}`);}}else if(path.startsWith('/portals/')){const parts=path.split('/');if(parts.length===3){openNewTab(`${baseUrl}/portals/${parts[2]}`);}}})();" class="bookmarklet">QVC Plus Bookmarklet</a>
+</body>
+</html>
