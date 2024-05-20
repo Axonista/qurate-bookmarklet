@@ -26,7 +26,10 @@
 </head>
 <body>
     <h1>QVC Plus Bookmarklet</h1>
-    <p>Drag the link or button to your bookmarks bar:</p>
+    <p>Hold and drag the link or button to your bookmarks bar:</p>
     <a class="bookmarklet" href='javascript:(function(){const e=window.location.href,t=window.location.hostname,o=window.location.pathname;if("plus.qvc.com"!==t&&"qa-plus.qvc.com"!==t)return void alert("Works only on QVC Plus");const n="qa-plus.qvc.com"===t?"https://cms.pi07.ediflo.tv/@qvc-us-qa/":"https://cms.pi07.ediflo.tv/@qvc-us/";function i(e){try{return atob(e)}catch(t){return console.error("Invalid Base64 string",t),""}}function r(e,t){let o=i(e);return o=o.replace(/\r?\n|\r/g,""),t&&(o=o.replace(new RegExp("^"+t),"")),o}let l="";if("/"===o)l=n+"collections/homepage-web";else if(o.includes("/streams/")){const e=o.match(/\/streams\/[^\/]+\/([^\/]+)/);if(e){const t=r(e[1],"Video_VideoStreamd");l=n+"assets/"+t+"?bookmarklet=v1"}}else if(o.startsWith("/series/")){const e=o.match(/\/series\/[^\/]+\/([^\/]+)/);if(e){const t=r(e[1],"Video_VideoSeriesd");l=n+"series/"+t+"?bookmarklet=v1"}}else if(o.startsWith("/portals/")){const e=o.match(/\/portals\/([^\/]+)/);if(e){const t=e[1];l=n+"layout/screens/"+t+"?bookmarklet=v1"}}else if(o.startsWith("/collections/")){const e=o.match(/\/collections\/([^\/]+)/);if(e){const t=e[1];l=n+"collections/"+t+"?bookmarklet=v1"}}l&&window.open(l,"_blank")})();'>Open in Ediflo</a>
+    <p>Like this:</p>
+    <img src="/bookmarklet.gif" />
+    <p>And then click on it while on QA or Prod Plus site to open content in Ediflo CMS</p>
 </body>
 </html>
